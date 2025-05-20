@@ -20,10 +20,11 @@ Populate the database
 npx prisma db seed
 Compile and run the project
 # development
+front end: 
 $ npm run start
-
-# watch mode
+back-end:
 $ npm run start:dev
+
 Links
 back-end: http://localhost:3000
 
