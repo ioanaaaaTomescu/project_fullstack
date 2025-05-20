@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
 import { login } from '../api/auth';
+//intialize component:
+import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     try {
       await login(email, password);
-      setShowModal(true); 
+      //setShowModal(true); this is my modification!!!
+      navigate('/invoices');
+
     } catch (err) {
       setError('Invalid email or password.');
     }
